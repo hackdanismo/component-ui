@@ -86,3 +86,80 @@ body {
     /* Prevents overflow of children e.g. images, blocks */
     min-height: 0;
 }
+
+
+/** CODE SNIPPETS TEST **/
+/* Demo layout */
+.demo {
+    margin: 2rem 0;
+    border-top: 1px solid #e5e5e5;
+    padding-top: 1.5rem;
+  }
+  .demo-title {
+    margin: 0 0 1rem;
+  }
+  .demo-preview {
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    background: #fff;
+  }
+  
+  /* Code area */
+/* Code area container */
+.demo-code{
+    margin-top: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #0b0b0b; /* makes the whole block feel unified */
+  }
+  
+  /* Tabs row */
+  .code-tabs{
+    display: flex;
+    gap: .5rem;
+    padding: .5rem .75rem;
+    background: #f6f6f6;
+    border-bottom: 1px solid #ddd;
+    align-items: center; /* fixes vertical alignment */
+  }
+  
+  /* Tab buttons */
+  .tab{
+    appearance: none;
+    border: 0;
+    background: transparent;
+    padding: .4rem .7rem;
+    border-radius: 10px;
+    cursor: pointer;
+    font: inherit;
+    line-height: 1;      /* important: stops “floating” text */
+  }
+  
+  .tab.is-active{
+    background: #111;
+    color: #fff;
+  }
+  
+  /* Panels */
+  .code-panels { background: #0b0b0b; }
+  
+  .panel{
+    display: none;
+    margin: 0;           /* important: remove default pre margin */
+    padding: 1rem;
+    background: transparent; /* inherit from container */
+    color: #f4f4f4;
+    overflow: auto;
+  }
+  
+  .panel.is-active{ display: block; }
+  
+  .panel code{
+    display: block;
+    white-space: pre;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    font-size: .9rem;
+    line-height: 1.4;
+  }

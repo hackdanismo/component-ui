@@ -84,6 +84,59 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                 </div>
             </section>
+
+            <!-- TESTING OF CODE SNIPPETS -->
+            <section class="demo" id="demo-banner">
+                <div class="container">
+                <h2 class="demo-title">Banner</h2>
+              
+                <!-- Rendered component -->
+                <div class="demo-preview">
+                  <div class="banner">
+                    <div class="container">This is a banner</div>
+                  </div>
+                </div>
+              
+                <!-- Code (tabs) -->
+                <div class="demo-code" data-demo>
+                  <div class="code-tabs" role="tablist" aria-label="Code tabs">
+                    <button class="tab is-active" type="button" role="tab" aria-selected="true" data-tab="html">HTML</button>
+                    <button class="tab" type="button" role="tab" aria-selected="false" data-tab="css">CSS</button>
+                    <button class="tab" type="button" role="tab" aria-selected="false" data-tab="js">JS</button>
+                  </div>
+              
+                  <div class="code-panels">
+                    <pre class="panel is-active" data-panel="html"><code class="language-html"></code></pre>
+                    <pre class="panel" data-panel="css"><code class="language-css"></code></pre>
+                    <pre class="panel" data-panel="js"><code class="language-js"></code></pre>
+                  </div>
+              
+                  <!-- Store the source for this demo (keeps your page tidy) -->
+                  <template data-source="html">
+<div class="banner">
+    <div class="container">This is a banner</div>
+</div>
+                  </template>
+              
+                  <template data-source="css">
+              .banner {
+                background: #111;
+                color: #fff;
+                text-align: center;
+                padding: 1rem;
+              }
+              .container {
+                max-width: 1100px;
+                margin: 0 auto;
+              }
+                  </template>
+              
+                  <template data-source="js">
+              // optional
+                  </template>
+                </div>
+                </div><!-- / Container -->
+              </section>
         </main>
 
         <footer aria-label="Site footer">
@@ -101,5 +154,39 @@
             window.addEventListener('load', setBannerOffset);
             window.addEventListener('resize', setBannerOffset);
         </script>
+
+        <!-- CODE SNIPPETS TEST -->
+        <script>
+            // Fill each code panel from the <template data-source="..."> blocks
+            document.querySelectorAll("[data-demo]").forEach((demo) => {
+              const sources = {};
+              demo.querySelectorAll("template[data-source]").forEach((tpl) => {
+                sources[tpl.dataset.source] = tpl.innerHTML.trim();
+              });
+          
+              demo.querySelectorAll(".panel code").forEach((codeEl) => {
+                const lang = codeEl.className.includes("language-html") ? "html"
+                           : codeEl.className.includes("language-css")  ? "css"
+                           : "js";
+                codeEl.textContent = sources[lang] || "";
+              });
+          
+              // Tab switching
+              demo.querySelectorAll(".tab").forEach((btn) => {
+                btn.addEventListener("click", () => {
+                  const target = btn.dataset.tab;
+          
+                  demo.querySelectorAll(".tab").forEach(t => {
+                    t.classList.toggle("is-active", t === btn);
+                    t.setAttribute("aria-selected", t === btn ? "true" : "false");
+                  });
+          
+                  demo.querySelectorAll(".panel").forEach(p => {
+                    p.classList.toggle("is-active", p.dataset.panel === target);
+                  });
+                });
+              });
+            });
+          </script>
     </body>
 </html>
