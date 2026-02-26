@@ -17,9 +17,12 @@
         <meta property="og:image" content="https://yourdomain.com/preview.jpg">
 
         <link rel="stylesheet" href="styles/reset.css">
+        <link rel="stylesheet" href="styles/style.css">
     </head>
     <body>
-        <a href="#main">Skip to content</a>
+        <div class="container">
+            <a href="#main">Skip to content</a>
+        </div>
 
         <header aria-label="Site header">
             <!-- Header -->
@@ -27,6 +30,29 @@
 
         <main role="main" id="main" tabindex="-1">
             <!-- Content -->
+            <section>
+                <div class="container">
+                    <h2>Card: Flex: 3-column layout</h2>
+
+                    <div class="card-flex-grid">
+                        <div class="card-flex">
+                            <div class="card-flex__content">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            </div>
+                        </div>
+                        <div class="card-flex">
+                            <div class="card-flex__content">
+                                Card
+                            </div>
+                        </div>
+                        <div class="card-flex">
+                            <div class="card-flex__content">
+                                Card
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
 
         <footer aria-label="Site footer">

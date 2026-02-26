@@ -1,0 +1,62 @@
+:root {
+    --card-flex-grid-gap: 1rem;
+    --card-flex-grid-columns: 3;
+}
+
+.container {
+    /* Set the container to take the full width of the page or parent element */
+    width: 100%;
+    /* Set the maximum width of the container to avoid stretching the content on large screens */
+    max-width: 1240px;
+    /* Center align the container horizontally */
+    margin: 0 auto;
+    /* Horizontal padding to provide spacing on smaller screen sizes */
+    padding: 0 1rem;
+}
+
+.card-flex-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--card-flex-grid-gap);
+    /* Make sure the card stretches to the same height as the other cards to be equal */
+    align-items: stretch;
+}
+
+.card-flex {
+    border: 1px solid #000;
+    /* Set each card to be a column flex container so inner parts can stretch */
+    display: flex;
+    flex-direction: column;
+    /* All smaller containers to shrink correctly */
+    min-height: 0;
+    /* 
+     * Set a three column grid layout without any padding on the ends.
+     * Calculation: (100% - total_gaps) / number_of_columns
+     * If the container has a gap of 1rem, the total_gaps value will be 2rem.
+    */
+    /****flex: 0 0 calc((100% - var(--card-flex-grid-gap)*2) / var(--card-flex-grid-columns));***/
+    flex: 0 0 calc((100% - (var(--card-flex-grid-columns) - 1) * var(--card-flex-grid-gap))
+    / var(--card-flex-grid-columns));
+}
+
+/* Mobile: 1 column */
+@media (max-width: 599px) {
+    .card-flex-grid {
+      --card-flex-grid-columns: 1;
+    }
+  }
+  
+  /* Tablet: 2 columns (optional) */
+  @media (min-width: 600px) and (max-width: 899px) {
+    .card-flex-grid {
+      --card-flex-grid-columns: 2;
+    }
+  }
+
+.card-flex__content {
+    padding: 1rem;
+    /* Let the content area of the card tak remaining vertical space */
+    flex: 1 1 auto;
+    /* Prevents overflow of children e.g. images, blocks */
+    min-height: 0;
+}

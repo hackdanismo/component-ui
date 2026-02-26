@@ -103,9 +103,3 @@ table {
     /* Hide elements and support accessibility for screen readers */
     display: none;
 }
-
-:focus, :focus-visible {
-    /* Ensure that focus outlines are visible on components */
-    outline: 2px solid currentColor;
-    outline-offset: 2px;
-}
