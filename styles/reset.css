@@ -1,0 +1,111 @@
+/* Universal selector: applies styling properties to all elements */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Honor the user's system preference for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0s !important;
+        transition-duration: 0s !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+html {
+    /* Set the root font size as a fallback if browsers do not support rem */
+    font-size: 16px;
+    /* Set the root font size */
+    font-size: 1rem;
+    /* Enable smooth scroll for the page */
+    scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        /* Enable keyword animations */
+        interpolate-size: allow-keywords;
+    }
+}
+
+body {
+    /* Normalize text/font rendering and smoothing across platforms */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: greyscale;
+    text-rendering: optimizeLegibility;
+}
+
+html, body {
+    /* Remove default margins */
+    margin: 0;
+    /* Remove default paddings */
+    padding: 0;
+}
+
+/* Set the display property for elements in older browsers */
+article, aside, details, figcaption, figure, footer,
+header, hgroup, main, menu, nav, section {
+    display: block;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    /* Avoid text overflows */
+    overflow-wrap: break-word;
+    /* Improve line wrapping */
+    text-wrap: balance;
+}
+
+p {
+    /* Avoid text overflows */
+    overflow-wrap: break-word;
+    /* Improve line wrapping */
+    text-wrap: pretty;
+}
+
+li, figcaption {
+    /* Improve line wrapping */
+    text-wrap: pretty;
+}
+
+input, button, textarea, select {
+    /* Remove built-in form typography styles */
+    font: inherit;
+}
+
+/* Set media elements to be responsive */
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    /* Inherit the color for links */
+    color: inherit;
+    cursor: pointer;
+}
+
+/* Set buttons to have consistent styles */
+button, [role="button"] {
+    border: none;
+    display: inline-block;
+    text-decoration: none;
+    background: none;
+    cursor: pointer;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+[hidden] {
+    /* Hide elements and support accessibility for screen readers */
+    display: none;
+}
+
+:focus, :focus-visible {
+    /* Ensure that focus outlines are visible on components */
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+}
