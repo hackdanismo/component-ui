@@ -1,6 +1,12 @@
 :root {
+    --banner-offset: 0;
+
     --card-flex-grid-gap: 1rem;
     --card-flex-grid-columns: 3;
+}
+
+body {
+    padding-top: var(--banner-offset);
 }
 
 .container {
@@ -12,6 +18,26 @@
     margin: 0 auto;
     /* Horizontal padding to provide spacing on smaller screen sizes */
     padding: 0 1rem;
+}
+
+.banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: #111;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+}
+
+.banner-example {
+    background: #111;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
 }
 
 .card-flex-grid {
